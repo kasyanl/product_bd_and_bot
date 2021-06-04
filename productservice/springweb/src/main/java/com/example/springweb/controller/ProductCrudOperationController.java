@@ -80,8 +80,8 @@ public class ProductCrudOperationController {
     }
 
     // получение страницы с сообщением, что продукт удален из основной БД
-    @GetMapping(value = "/deleteproduct")
-    public ModelAndView deleteproduct(@RequestParam(value = "id") int id) {
+    @GetMapping(value = "/deleteproduct/{id}")
+    public ModelAndView deleteproduct(@PathVariable("id") int id) {
         productOfDeleteService.saveProductOfDelete(id);
         productService.deleteProduct(id);
 
@@ -117,16 +117,22 @@ public class ProductCrudOperationController {
     }
 
     // получение страницы с формой для редактирования данных продукта
-    @GetMapping(value = "/editproduct")
-    public ModelAndView edit(@RequestParam(value = "id") int id) {
+    @GetMapping(value = "/editproduct/{id}")
+    public ModelAndView edit(@PathVariable("id") int id) {
         var modelAndView = new ModelAndView("adminpages/editproduct");
-        modelAndView.addObject("editProduct", productService.findById(id));
+        var product = productService.findById(id);
+        modelAndView.addObject("getId", product.getId());
+        modelAndView.addObject("getCategory", product.getCategory());
+        modelAndView.addObject("getName", product.getName());
+        modelAndView.addObject("getPrice", product.getPrice());
+        modelAndView.addObject("getDiscount", product.getDiscount());
+        modelAndView.addObject("getTotalVolume", product.getTotalVolume());
         return modelAndView;
     }
 
     // отправка обновленных данных в БД и перенаправление на страницу со всем списком
-    @PostMapping(value = "/editproduct")
-    public ModelAndView edit(@RequestParam(value = "id") int id,
+    @PostMapping(value = "/editproduct/{id}")
+    public ModelAndView edit(@PathVariable("id") int id,
                              @RequestParam(value = "category") String category,
                              @RequestParam(value = "name") String name,
                              @RequestParam(value = "price") double price,

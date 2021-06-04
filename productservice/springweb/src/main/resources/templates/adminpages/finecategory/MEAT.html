@@ -1,0 +1,88 @@
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Система учета продуктов</title>
+    <style>
+        body {
+            background-color: #CCFFCC;
+            background-image: url(../../downloads/xls/bg.jpg);
+        }
+    </style>
+</head>
+<body align="center">
+<%@include file="../../header.html"%>
+<%@include file="../nav.jsp"%>
+<h1>Продукты категории MEAT:</h1>
+<table class="title" align="right">
+    <tr>
+        <th>
+            <a href="/product/categorydiscount/MEAT" title="Изменить скидку для категории">
+                <input type="image" src="/download/xls/procent.png"
+                       width="100" height="100" alt="Экспорт в Excel файл" value="Экспорт в Excel файл"></a>
+        </th>
+        <th>
+            <a href="/product/exportexcel/MEAT" title="Экспорт в Excel файл">
+                <input type="image" src="/download/xls/excel.png"
+                       width="100" height="100" alt="Экспорт в Excel файл" value="Экспорт в Excel файл"></a>
+        </th>
+    </tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<table class="table" align="center">
+    <tr>
+        <th width="100" align="center"><b> ID</b></th>
+        <th><b> категория</b></th>
+        <th><b> название</b></th>
+        <th width="100" align="center"><b> цена, BYN</b></th>
+        <th width="100" align="center"><b> скидка, %</b></th>
+        <th width="100" align="center"><b> конечная цена, BYN</b></th>
+        <th width="100" align="center"><b> наличие, кг(шт)</b></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <th:block th:each="product : ${fineCategoryProduct}">
+        <tr>
+            <td th:text="${product.id}"></td>
+            <td th:text="${product.category}"></td>
+            <td th:text="${product.name()}"></td>
+            <td th:text="${product.price()}"></td>
+            <td th:text="${product.discount()}"></td>
+            <td th:text="${product.actualPrice()}"></td>
+            <td th:text="${product.totalVolume()}"></td>
+            <td><a href="/product/deleteproduct?id=${product.getId()}"
+                   title="Удалить"
+                   onclick="return confirm('Удалить продукт <${product.getName()}> категории <${product.getCategory()}>?')"><input
+                    type="image" src="/download/xls/del.png"
+                    width="18" height="18" alt="Удалить"></a></td>
+            <td><a href="/product/editproduct?id=${product.getId()}"
+                   title="Изменить"
+                   onclick="return confirm('Изменить данные <${product.getName()}> категории <${product.getCategory()}>?')"><input
+                    type="image" src="/download/xls/edit.jpg"
+                    width="18" height="18" alt="Изменить"></a></td>
+        </tr>
+    </th:block>
+    <tr>
+        <th><b> ID</b></th>
+        <th><b> категория</b></th>
+        <th><b> название</b></th>
+        <th><b> цена, BYN</b></th>
+        <th><b> скидка, %</b></th>
+        <th><b> конечная цена, BYN</b></th>
+        <th><b> наличие, кг(шт)</b></th>
+        <th></th>
+        <th></th>
+    </tr>
+</table>
+<a href="/selectcategorybyread">Back</a>
+<br>
+<br>
+<%@include file="../../footer.html" %>
+<br>
+<br>
+</body>
+</html>

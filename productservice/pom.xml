@@ -9,13 +9,17 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-<!--        <module>springweb</module>-->
+        <module>springweb</module>
         <module>bot</module>
     </modules>
 
     <properties>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
+        <sonar.projectKey>kasyanl_spring_boot</sonar.projectKey>
+        <sonar.organization>kasyanl</sonar.organization>
+        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
+        <sonar.login>856c50e65c1004b5929a5ec16ab7bbbe9f342435</sonar.login>
     </properties>
 
 </project>

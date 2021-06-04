@@ -1,0 +1,28 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page contentType="text/html;charset=UTF-8"%>
+<html>
+<head>
+    <title>Корзина</title>
+    <style>
+        body {
+            background-color: #CCFFCC;
+            background-image: url(../downloads/xls/bg.jpg);
+        }
+    </style>
+</head>
+<body align="center">
+<%@include file="../header.html"%>
+<%@include file="nav.html"%>
+<h3>Запись успешно восстановлена!!</h3>
+
+<form action="/product/allproduct?id=${product.getId()}" method="get">
+    <input type="submit" value="Список продуктов">
+</form>
+<form action="/product/bascket" method="get">
+    <input type="submit" value="В корзину">
+</form>
+<%@include file="../footer.html"%>
+<br>
+<br>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<html lang="ru">
+<head>
+    <title>Учет продуктов</title>
+    <style>
+        body {
+            background-color: #CCFFCC;
+            background-image: url(../downloads/xls/bg.jpg);
+        }
+    </style>
+</head>
+<body align="center">
+<%@include file="../header.html" %>
+<%@include file="nav.jsp" %>
+<h1>Система учета продуктов</h1>
+
+<table class="table" align="center">
+    <tr>
+        <th width="100" align="center">
+            <a href="/product/allproduct">
+                <img src="/download/xls/allproduct.jpg"
+                     width="400" height="400" alt="Список всех продуктов"><h3>Список всех продуктов</h3></a></p>
+        </th>
+        <th width="100" align="center">
+            <a href="/product/addproduct">
+                <img src="/download/xls/add.png"
+                     width="400" height="400" alt="Добавить новый продукт"><h3>Добавить новый продукт</h3></a></p>
+        </th>
+    </tr>
+  </table>
+<%@include file="../footer.html" %>
+</body>
+</html>

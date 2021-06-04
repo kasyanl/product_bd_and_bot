@@ -21,10 +21,6 @@
         <jstl>1.2</jstl>
         <hb.manager>5.4.29.Final</hb.manager>
         <maven.compiler.plugin>3.8.1</maven.compiler.plugin>
-        <sonar.projectKey>kasyanl_spring_boot</sonar.projectKey>
-        <sonar.organization>kasyanl</sonar.organization>
-        <sonar.host.url>https://sonarcloud.io</sonar.host.url>
-        <sonar.login>856c50e65c1004b5929a5ec16ab7bbbe9f342435</sonar.login>
     </properties>
     <dependencies>
         <dependency>
@@ -86,10 +82,10 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.springframework.boot</groupId>-->
-<!--            <artifactId>spring-boot-starter-thymeleaf</artifactId>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-thymeleaf</artifactId>
+        </dependency>
     </dependencies>
     <build>
         <plugins>

@@ -1,0 +1,50 @@
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Изменение данных.</title>
+    <style>
+        body {
+            background-color: #CCFFCC;
+            background-image: url(../downloads/xls/bg.jpg);
+        }
+    </style>
+</head>
+<body align="center">
+<%@include file="../header.html"%>
+<%@include file="nav.jsp"%>
+<h2>Замените необходимые данные:</h2>
+<!--   <% Product product = (Product) request.getAttribute("editProduct"); %>&ndash;&gt;-->
+
+<form action="#" th:href="@{/product/editproduct/{id}(id=${getId})}" method="post">
+    <label>
+        категория<br>
+        <select th:value="${getCategory}" name="category">
+            <option th:value="${getCategory}"> <b th:text="${getCategory}"></b></option>
+            <option value="FRUITS">FRUITS</option>
+            <option value="BERRIES">BERRIES</option>
+            <option value="VEGETABLES">VEGETABLES</option>
+            <option value="MILK_PRODUCT">MILK_PRODUCT</option>
+            <option value="MEAT">MEAT</option>
+            <option value="ALCOHOLIC_BEVERAGES">ALCOHOLIC_BEVERAGES</option>
+        </select>
+    </label><br/>
+    название продукта<br>
+    <label><input name="name" placeholder="название" type="text" th:value="${getName}"></label> <br/>
+    стоимость подукта, BYN<br>
+    <label><input name="price" placeholder="цена" type="text" th:value="${getPrice}"></label> <br/>
+    скидка продукта, %<br>
+    <label><input name="discount" placeholder="скидка" type="text" th:value="${getDiscount}"></label> <br/>
+    наличе, кг(шт)<br>
+    <label><input name="totalVolume" placeholder="наличие" type="text"
+                  th:value="${getTotalVolume}"></label> <br/>
+    <br> <input type="image" src="/download/xls/save.jpg"
+                width="50" height="50" alt="Добавить новый продукт" value="Сохранить">
+</form>
+<a href="/content">Home</a>
+<br>
+<br>
+<br>
+<%@include file="../footer.html"%>
+<br>
+<br>
+</body>
+</html>

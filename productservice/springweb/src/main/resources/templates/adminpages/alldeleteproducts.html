@@ -1,0 +1,75 @@
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Корзина</title>
+    <style>
+        body {
+            background-color: #CCFFCC;
+            background-image: url(../downloads/xls/bg.jpg);
+        }
+    </style>
+</head>
+<body align="center">
+<%@include file="../header.html" %>
+<%@include file="nav.jsp" %>
+
+<table class="table" align="right">
+    <tr>
+        <th>
+            <a href="/product/recoveredallproduct" title="Восстановить все данные"
+               onclick="return confirm('Восстановить все данные из корзины?')">
+                <input type="image" src="/download/xls/recovery.png"
+                       width="100" height="100" alt="Очистить корзину" value="Очистить корзину"></a></th>
+        </th>
+        <th>
+            <a href="/product/cleanbascket" title="Очистить корзину"
+               onclick="return confirm('Вы точно хотите очистить корзину? Данные будут уберяны без возможности восстановления!')">
+                <input type="image" src="/download/xls/del.png"
+                       width="100" height="100" alt="Очистить корзину" value="Очистить корзину"></a></th>
+        </th>
+    </tr>
+</table>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Весь список удаленных ранее продуктов</h1>
+<table class="table" align="center">
+    <tr>
+        <th width="100" align="center"><b> ID</b></th>
+        <th><b> категория</b></th>
+        <th><b> название</b></th>
+        <th width="100" align="center"><b> цена, BYN</b></th>
+        <th width="100" align="center"><b> скидка, %</b></th>
+        <th width="100" align="center"><b> конечная цена, BYN</b></th>
+        <th width="100" align="center"><b> наличие, кг(шт)</b></th>
+        <th align="center"><b> дата удаления</b></th>
+        <th></th>
+        <th></th>
+    </tr>
+    <th:block th:each="product : ${productDel}">
+        <tr>
+            <td align="center" th:text="${product.getId()}"></td>
+            <td align="center" th:text="${product.getCategory()}"></td>
+            <td align="center" th:text="${product.getName()}"></td>
+            <td align="center" th:text="${product.getPrice()}"></td>
+            <td align="center" th:text="${product.getDiscount()}"></td>
+            <td align="center" th:text="${product.getActualPrice()}"></td>
+            <td align="center" th:text="${product.getTotalVolume()}"></td>
+            <td align="center" th:text="${product.getData()}"></td>
+            <td><a href="/product/recoveredproduct?id=${product.getId()}"
+                   onclick="return confirm('Восстановить продукт <${product.getName()}> категории <${product.getCategory()}>?')">
+                <input type="submit" value="Восстановить"></a></td>
+            <td><a href="/product/deleteproductbasket?id=${product.getId()}"
+                   onclick="return confirm('Вы уверены? Продукт <${product.getName()}> категории <${product.getCategory()}> будет удален без возможности восстановления!')">
+                <input type="submit" value="Удалить из корзины"></a></td>
+        </tr>
+    </th:block>
+</table>
+<a href="/content">Back</a>
+<br>
+<br>
+<%@include file="../footer.html" %>
+</body>
+</html>

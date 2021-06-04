@@ -14,32 +14,32 @@ public class SearchCategoryController {
 
     // получение списка категории FRUITS
     @GetMapping(value = "/finecategory/{category}")
-    public ModelAndView fineFruits(@PathVariable String category) {
-        var modelAndView = new ModelAndView();
-        modelAndView.setViewName("adminpages/finecategory/" + category);
-        modelAndView.addObject("finecategory", productService.fineCategoryForRead(category));
+    @ResponseBody
+    public ModelAndView fineFruits(@PathVariable ("category") String category) {
+        var modelAndView = new ModelAndView("adminpages/finecategory/" + category);
+        modelAndView.addObject("fineCategoryProduct", productService.fineCategoryForRead(category));
         return modelAndView;
     }
 
     // получение списка категории FRUITS для Гостя
     @GetMapping(value = "/finefruitsguest/{category}")
-    public ModelAndView fineFruitsGuest(@PathVariable String category) {
+    public ModelAndView fineFruitsGuest(@PathVariable ("category") String category) {
         var modelAndView = new ModelAndView();
         modelAndView.setViewName("guestpages/finecategory/" + category);
-        modelAndView.addObject("finecategory", productService.fineCategoryForRead(category));
+        modelAndView.addObject("finecategoryguest", productService.fineCategoryForRead(category));
         return modelAndView;
     }
 
     // получение страницы с формой для изменения скидки для категории ALCOHOLIC_BEVERAGES
     @GetMapping(value = "/categorydiscount/{category}")
-    public String alcoholDiscountPage(@PathVariable String category) {
-        return "adminpages/insertdiscountcategory/" + category;
+    public ModelAndView alcoholDiscountPage(@PathVariable ("category") String category) {
+        return new ModelAndView("adminpages/insertdiscountcategory/" + category);
     }
 
     // отправка заданной скидки для категории ALCOHOLIC_BEVERAGES
     @PostMapping(value = "/categorydiscount/{category}")
     public ModelAndView editAlcoholDiscount(@RequestParam(value = "discount") double discount,
-                                            @PathVariable String category) {
+                                            @PathVariable ("category") String category) {
         productService.updateDiscountForCategory(category, discount);
         return new ModelAndView("redirect:/product/finecategory/" + category);
     }

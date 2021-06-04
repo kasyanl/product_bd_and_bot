@@ -24,7 +24,7 @@ public class DownloadsController {
     public void downloadPDFResource(HttpServletRequest request,
                                     HttpServletResponse response,
                                     @PathVariable("fileName") String fileName) {
-        String dataDirectory = request.getServletContext().getRealPath("/WEB-INF/downloads/xls/");
+        String dataDirectory = request.getServletContext().getRealPath("/downloads/xls/");
         var file = Paths.get(dataDirectory, fileName);
         if (Files.exists(file)) {
             response.setContentType("application/xls");
