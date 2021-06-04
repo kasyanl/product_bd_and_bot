@@ -20,11 +20,11 @@ public class DownloadsController {
 
     static System.Logger logger;
 
-    @GetMapping("/xls/{fileName:.+}")
+    @GetMapping("/img/{fileName:.+}")
     public void downloadPDFResource(HttpServletRequest request,
                                     HttpServletResponse response,
                                     @PathVariable("fileName") String fileName) {
-        String dataDirectory = request.getServletContext().getRealPath("/downloads/xls/");
+        String dataDirectory = request.getServletContext().getRealPath("/img/");
         var file = Paths.get(dataDirectory, fileName);
         if (Files.exists(file)) {
             response.setContentType("application/xls");

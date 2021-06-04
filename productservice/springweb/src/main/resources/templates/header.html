@@ -8,12 +8,12 @@
 
         header {
             display: block;
-            background: url(downloads/xls/header.jpg) repeat-x;
+            background: url(/img/header.jpg) repeat-x;
             /* Градиент */
         }
 
         .header-bg {
-            background: url(downloads/xls/header.jpg) repeat-x center bottom;
+            background: url(/img/header.jpg) repeat-x center bottom;
             height: 200px;
             text-align: center;
         }
@@ -27,7 +27,8 @@
 </head>
 <body>
 <header>
-    <div class="header-bg"></div>
+    <div class="header-bg" th:fragment="head">
+   </div>
 </header>
 
 </body>

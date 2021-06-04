@@ -5,13 +5,25 @@
   <style>
     body {
       background-color: #CCFFCC;
-      background-image: url(../downloads/xls/bg.jpg);
+      background-image: url(../../static/img/bg.jpg);
     }
   </style>
 </head>
 <body align="center">
 <%@include file="../header.html" %>
-<%@include file="nav.jsp" %>
+<nav class="navbar navbar-light" style="background-color: #bdb6b6;">
+  <h3>
+    <ul>
+      <a href="/content" class="text-primary">Главная</a> |
+      <a href="/product/allproduct">Список всех продуктов</a> |
+      <a href="/selectcategorybyread">Получить список одной категории</a> |
+      <a href="/product/addproduct">Добавить новый продукт</a>|
+      <a href="/product/bascket">Корзина</a>|
+      <a href="/product/buystarted">Касса</a>|
+      <a href="/">На стартовую страницу</a>
+    </ul>
+  </h3>
+</nav>
 <h3>Покупка завершена. Нажмите на значок, для скачивания чека</h3>
 <a href="/download/xls/check.xls" title="Сохранить">
   <input type="image" src="/download/xls/excel.png"
