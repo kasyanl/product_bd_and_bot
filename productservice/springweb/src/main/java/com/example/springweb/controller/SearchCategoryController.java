@@ -13,19 +13,21 @@ public class SearchCategoryController {
     private ProductService productService;
 
     // получение списка категории FRUITS
-    @GetMapping(value = "/finecategory/{category}")
+    @GetMapping(value = "/categoryfind/{category}")
     @ResponseBody
-    public ModelAndView fineFruits(@PathVariable ("category") String category) {
-        var modelAndView = new ModelAndView("adminpages/finecategory/" + category);
-        modelAndView.addObject("fineCategoryProduct", productService.fineCategoryForRead(category));
+    public ModelAndView fineFruits(@PathVariable("category") String category) {
+        var modelAndView = new ModelAndView("adminpages/categoryfind");
+        modelAndView.addObject("categoryProduct", productService.fineCategoryForRead(category));
+        modelAndView.addObject("categoryName", category);
         return modelAndView;
     }
 
     // получение списка категории FRUITS для Гостя
-    @GetMapping(value = "/finefruitsguest/{category}")
+    @GetMapping(value = "/categoryfindguest/{category}")
     public ModelAndView fineFruitsGuest(@PathVariable ("category") String category) {
         var modelAndView = new ModelAndView();
-        modelAndView.setViewName("guestpages/finecategory/" + category);
+        modelAndView.setViewName("guestpages/categoryfindguest");
+        modelAndView.addObject("categoryNameGuest", category);
         modelAndView.addObject("finecategoryguest", productService.fineCategoryForRead(category));
         return modelAndView;
     }
@@ -33,7 +35,9 @@ public class SearchCategoryController {
     // получение страницы с формой для изменения скидки для категории ALCOHOLIC_BEVERAGES
     @GetMapping(value = "/categorydiscount/{category}")
     public ModelAndView alcoholDiscountPage(@PathVariable ("category") String category) {
-        return new ModelAndView("adminpages/insertdiscountcategory/" + category);
+        var modelAndView = new ModelAndView("adminpages/insertdiscountcategory");
+        modelAndView.addObject("categoryName", category);
+        return modelAndView;
     }
 
     // отправка заданной скидки для категории ALCOHOLIC_BEVERAGES
@@ -41,7 +45,7 @@ public class SearchCategoryController {
     public ModelAndView editAlcoholDiscount(@RequestParam(value = "discount") double discount,
                                             @PathVariable ("category") String category) {
         productService.updateDiscountForCategory(category, discount);
-        return new ModelAndView("redirect:/product/finecategory/" + category);
+        return new ModelAndView("redirect:/product/categoryfind/" + category);
     }
 
     @Autowired

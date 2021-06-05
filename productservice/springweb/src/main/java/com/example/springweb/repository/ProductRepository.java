@@ -17,6 +17,9 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     List<Product> findByCategory(String category);
     Optional <Product> findByName(String name);
 
+    @Query("SELECT DISTINCT category FROM Product")
+    List<Product> findByCategoryName();
+
     @Modifying
     @Query("update Product p set p.category=:category, p.name=:name, p.price=:price," +
             " p.discount=:discount, p.actualPrice=:actualPrice, p.totalVolume=:totalVolume where p.id=:id")

@@ -64,12 +64,12 @@ public class ExportToExcelService {
             i++;
         }
         // название и путь для нашего файла
-        var filename = "src/main/webapp/WEB-INF/downloads/xls/productlist.xls";
+        var  filename = "src/main/resources/static/img/productlist.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
-        } catch (IOException ex) {
-            logger.log(System.Logger.Level.INFO, ex);
+        } catch (IOException file) {
+            file.printStackTrace();
         }
     }
 
@@ -111,12 +111,12 @@ public class ExportToExcelService {
             i++;
         }
         // название и путь для нашего файла
-        var filename = "src/main/webapp/WEB-INF/downloads/xls/productlist.xls";
+        var filename = "src/main/resources/static/img/productlist.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
-        } catch (IOException ex) {
-            logger.log(System.Logger.Level.INFO, ex);
+        } catch (IOException file) {
+            file.printStackTrace();
         }
     }
 
@@ -178,12 +178,12 @@ public class ExportToExcelService {
         totalPrice.setCellValue(utilService.totalPrise());
 
         // название и путь для нашего файла (по умолчанию в корне проекта)
-        var filename = "src/main/webapp/WEB-INF/downloads/xls/check.xls";
+        var filename = "src/main/resources/static/img/check.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
-        } catch (IOException ex) {
-            logger.log(System.Logger.Level.INFO, ex);
+        } catch (IOException file) {
+            file.printStackTrace();
         }
     }
 

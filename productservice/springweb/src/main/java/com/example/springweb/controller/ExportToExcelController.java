@@ -13,14 +13,14 @@ public class ExportToExcelController {
 
     private ExportToExcelService exportToExcelService;
 
-    // получение списка категории ALCOHOLIC_BEVERAGES
+    // получение списка категории
     @GetMapping(value = "/exportexcel/{category}")
     public String exportExcelAlcohol(@PathVariable String category) {
         exportToExcelService.exportCategoryList(category);
         return "adminpages/exportexcel";
     }
 
-    // получение списка категории ALCOHOLIC_BEVERAGES для Гостя
+    // получение списка категории для Гостя
     @GetMapping(value = "/exportexcelguest/{category}")
     public String exportExcelAlcoholGuest(@PathVariable String category) {
         exportToExcelService.exportCategoryList(category);

@@ -39,14 +39,20 @@ public class IndexController {
 
     // получения списка категории, для последующего выбора продуктов данной категории для юзера
     @GetMapping(value = "/selectcategorybyread")
-    public String selectCategoryByRead() {
-        return "adminpages/selectcategorybyread";
+    public ModelAndView selectCategoryByRead() {
+        var modelAndView = new ModelAndView();
+        modelAndView.setViewName("adminpages/selectcategorybyread");
+        modelAndView.addObject("categoryName", productService.findByCategoryName());
+        return modelAndView;
     }
 
     // получения списка категории, для последующего выбора продуктов данной категории для гостя
     @GetMapping(value = "/selectcategorybyreadguest")
-    public String selectCategoryByReadGuest() {
-        return "guestpages/selectcategorybyreadguest";
+    public ModelAndView selectCategoryByReadGuest() {
+        var modelAndView = new ModelAndView();
+        modelAndView.setViewName("guestpages/selectcategorybyreadguest");
+        modelAndView.addObject("categoryName", productService.findByCategoryName());
+        return modelAndView;
     }
 
     // экспорт данных из корзины в excel

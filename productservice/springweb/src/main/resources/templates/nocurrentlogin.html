@@ -1,29 +1,29 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Title</title>
+    <meta charset="UTF-8">
+    <title>Система учета продуктов</title>
     <style>
         body {
             background-color: #CCFFCC;
-            background-image: url(${pageContext.request.contextPath}/download/xls/bg.jpg);
+            background-image: url(/img/bg.jpg);
         }
     </style>
 </head>
 <body align="center">
-<%@include file="header.html"%>
+<div th:insert="~{header :: head}"></div>
 <h4>Логин и/или пароль не верен. Пожалуйста, повторите попытку</h4>
 
-<form action="${pageContext.request.contextPath}/person/startlogin" method="post">
+<form action="/person/startlogin" method="post">
     <label><input name="login" placeholder="Логин" type="text"></label> <br/>
     <label><input name="password" placeholder="Пароль" type="text"></label> <br/>
     <input type="submit" value=Войти>
 </form>
 <br>
 <br>
-<h4><a href="${pageContext.request.contextPath}/contentguest">Зайти как ГОСТЬ</a></h4>
+<h4><a href="/contentguest">Зайти как ГОСТЬ</a></h4>
 <br>
 <br>
-<%@include file="footer.html"%>
+<div th:include="footer"></div>
 <br>
 <br>
 </body>

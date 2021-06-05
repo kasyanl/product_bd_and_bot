@@ -11,22 +11,10 @@
 </head>
 <body align="center">
 <div th:insert="~{header :: head}"></div>
-<nav class="navbar navbar-light" style="background-color: #bdb6b6;">
-    <h3>
-        <ul>
-            <a href="/content" class="text-primary">Главная</a> |
-            <a href="/product/allproduct">Список всех продуктов</a> |
-            <a href="/selectcategorybyread">Получить список одной категории</a> |
-            <a href="/product/addproduct">Добавить новый продукт</a>|
-            <a href="/product/bascket">Корзина</a>|
-            <a href="/product/buystarted">Касса</a>|
-            <a href="/">На стартовую страницу</a>
-        </ul>
-    </h3>
-</nav>
+<div th:insert="~{adminpages/nav :: nav}"></div>
 <h1>Весь список продуктов</h1>
 
-<h3 align="right"><a href="/exportexcel" title="Экспортировать в excel">
+<h3 align="right"><a href="#" th:href="@{/exportexcel}" title="Экспортировать в excel">
     <input type="image" th:src="@{/img/excel.png}"
            width="100" height="100" alt="Экспорт в Excel файл" value="Экспорт в Excel файл"></a></h3>
 
@@ -42,22 +30,8 @@
         <td></td>
         <td></td>
     </tr>
-    <tr>
-        <th><a href="/product/a/sortbyid"> &#x21D1; </a></th>
-        <th><a href="/product/a/sortbyidreverse">&#x21D3; </a></th>
-        <th><a href="/product/a/sortbycategory">&#x21D1; </a></th>
-        <th><a href="/product/a/sortbycategoryreverse">&#x21D3; </a></th>
-        <th><a href="/product/a/sortbyname">&#x21D1; </a></th>
-        <th><a href="/product/a/sortbynamereverse">&#x21D3;</a></th>
-        <th><a href="/product/a/sortbyprice">&#x21D1; </a></th>
-        <th><a href="/product/a/sortbypricereverse">&#x21D3; </a></th>
-        <th><a href="/product/a/sortbydiscount">&#x21D1; </a></th>
-        <th><a href="/product/a/sortbydiscountreverse">&#x21D3; </a></th>
-        <th><a href="/product/a/sortbyactualprice">&#x21D1; </a></th>
-        <th><a href="/product/a/sortbyactualpricereverse">&#x21D3; </a></th>
-        <th><a href="/product/a/sortbytotalvolume">&#x21D1; </a></th>
-        <th><a href="/product/a/sortbytotalvolumereverse">&#x21D3; </a></th>
-    </tr>
+    <tr th:include="adminpages/sortelement"></tr>
+
     <th:block th:each="product : ${allProduct}">
         <tr>
             <td colspan="2" align="center" th:text="${product.id}"></td>
@@ -67,18 +41,16 @@
             <td colspan="2" align="center" th:text="${product.discount}"></td>
             <td colspan="2" align="center" th:text="${product.actualPrice}"></td>
             <td colspan="2" align="center" th:text="${product.totalVolume}"></td>
-
-
             <td><a href="#" th:href="@{/product/deleteproduct/{id}(id=${product.id})}" title="Удалить"
                    th:data-category="${product.category}" th:data-name="${product.name}"
                    onclick="return confirm('Удалить продукт ' + this.getAttribute('data-name') + ' категории '
                     + this.getAttribute('data-category') + '?')">
-                <input type="image" th:src="@{/img/del.png}" width="18" height="18" alt="Очистить корзину"></a></td>
+                <input type="image" th:src="@{/img/del.png}" width="18" height="18" alt="Удалить"></a></td>
             <td><a href="#" th:href="@{/product/editproduct/{id}(id=${product.id})}" title="Изменить"
                    th:data-category="${product.category}" th:data-name="${product.name}"
                    onclick="return confirm('Изменить данные ' + this.getAttribute('data-name') + ' категории '
                     + this.getAttribute('data-category') + '?')">
-                <input type="image" th:src="@{/img/edit.jpg}" width="18" height="18" alt="Очистить корзину"></a></td>
+                <input type="image" th:src="@{/img/edit.jpg}" width="18" height="18" alt="Изменить"></a></td>
         </tr>
     </th:block>
     <tr>
@@ -93,11 +65,10 @@
         <td></td>
     </tr>
 </table>
-
 <a href="/content">Back</a>
 <br>
 <br>
-<div th:insert="~{footer :: foot}"></div>
+<div th:include="footer"></div>
 <br>
 <br>
 </body>

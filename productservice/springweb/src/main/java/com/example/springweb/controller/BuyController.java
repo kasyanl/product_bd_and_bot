@@ -7,10 +7,7 @@ import com.example.springweb.service.UtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
@@ -49,11 +46,11 @@ public class BuyController {
                 .addAttribute("quantity", quantity)
                 .addAttribute("totalVolume", totalVolume);
 
-        var modelAndView = new ModelAndView();
-        modelAndView.setViewName("redirect:/product/buyproduct");
         if (utilService.checkingForNumber(quantity, totalVolume)) {
             buyProductService.saveBayProduct(id, quantity);
         }
+        var modelAndView = new ModelAndView();
+        modelAndView.setViewName("redirect:/product/buyproduct");
         return modelAndView;
     }
 
@@ -82,7 +79,7 @@ public class BuyController {
     @GetMapping(value = "/deleteproductbuy")
     public ModelAndView deleteproduct(@RequestParam(value = "id") int id) {
         var modelAndView = new ModelAndView();
-        modelAndView.setViewName("adminpages/endbuyproduct");
+        modelAndView.setViewName("redirect:/product/endbuyproduct");
         buyProductService.deleteBuy(id);
         return modelAndView;
     }

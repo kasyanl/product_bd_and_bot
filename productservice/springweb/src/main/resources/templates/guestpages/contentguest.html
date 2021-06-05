@@ -1,25 +1,20 @@
 <html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Учет продуктов</title>
+    <meta charset="UTF-8">
+    <title>Система учета продуктов</title>
     <style>
         body {
             background-color: #CCFFCC;
-            background-image: url(../../static/img/bg.jpg);
+            background-image: url(/img/bg.jpg);
         }
     </style>
 </head>
 <body align="center">
-<header style = "background-color:khaki; height:100px" url="..downloads/xls/header.jpg"></header>
-<nav class="navbar navbar-light" style="background-color: #bdb6b6;">
-    <ul>
-        <a href="/contentguest"> Главная</a>
-        <a href="/product/allproductguest">Список всех продуктов</a> |
-        <a href="/selectcategorybyreadguest">Получить список одной категории</a> |
-        <a href="/">На стартовую страницу</a>
-    </ul>
-</nav>
+<div th:insert="~{header :: head}"></div>
+<div th:include="guestpages/navguest"></div>
 <h1>Система учета продуктов</h1>
 <h2>Вы зашли как <b>ГОСТЬ</b>. Функционал программы ограничен до уровня просмотра.
 </h2>
+<div th:include="footer"></div>
 </body>
 </html>

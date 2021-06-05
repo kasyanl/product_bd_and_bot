@@ -5,37 +5,25 @@
     <style>
         body {
             background-color: #CCFFCC;
-            background-image: url(../../static/img/bg.jpg);
+            background-image: url(/img/bg.jpg);
         }
     </style>
 </head>
 <body align="center">
-<%@include file="../header.html" %>
-<nav class="navbar navbar-light" style="background-color: #bdb6b6;">
-    <h3>
-        <ul>
-            <a href="/content" class="text-primary">Главная</a> |
-            <a href="/product/allproduct">Список всех продуктов</a> |
-            <a href="/selectcategorybyread">Получить список одной категории</a> |
-            <a href="/product/addproduct">Добавить новый продукт</a>|
-            <a href="/product/bascket">Корзина</a>|
-            <a href="/product/buystarted">Касса</a>|
-            <a href="/">На стартовую страницу</a>
-        </ul>
-    </h3>
-</nav>
+<div th:insert="~{header :: head}"></div>
+<div th:insert="~{adminpages/nav :: nav}"></div>
 <table class="table" align="right">
     <tr>
         <th>
             <a href="/product/recoveredallproduct" title="Восстановить все данные"
                onclick="return confirm('Восстановить все данные из корзины?')">
-                <input type="image" src="/download/xls/recovery.png"
+                <input type="image" src="/img/recovery.png"
                        width="100" height="100" alt="Очистить корзину" value="Очистить корзину"></a></th>
         </th>
         <th>
             <a href="/product/cleanbascket" title="Очистить корзину"
                onclick="return confirm('Вы точно хотите очистить корзину? Данные будут уберяны без возможности восстановления!')">
-                <input type="image" src="/download/xls/del.png"
+                <input type="image" src="/img/del.png"
                        width="100" height="100" alt="Очистить корзину" value="Очистить корзину"></a></th>
         </th>
     </tr>
@@ -69,11 +57,15 @@
             <td align="center" th:text="${product.getActualPrice()}"></td>
             <td align="center" th:text="${product.getTotalVolume()}"></td>
             <td align="center" th:text="${product.getData()}"></td>
-            <td><a href="/product/recoveredproduct?id=${product.getId()}"
-                   onclick="return confirm('Восстановить продукт <${product.getName()}> категории <${product.getCategory()}>?')">
+            <td><a href="#" th:href="@{/product/recoveredproduct/{id}(id=${product.id})}" title="Восстановить"
+                   th:data-category="${product.category}" th:data-name="${product.name}"
+                   onclick="return confirm('Восстановить продукт ' + this.getAttribute('data-name') + ' категории '
+                    + this.getAttribute('data-category') + '?')">
                 <input type="submit" value="Восстановить"></a></td>
-            <td><a href="/product/deleteproductbasket?id=${product.getId()}"
-                   onclick="return confirm('Вы уверены? Продукт <${product.getName()}> категории <${product.getCategory()}> будет удален без возможности восстановления!')">
+            <td><a href="#" th:href="@{/product/deleteproductbasket/{id}(id=${product.id})}" title="Удалить из корзины"
+                   th:data-category="${product.category}" th:data-name="${product.name}"
+                   onclick="return confirm('Вы уверены? Продукт ' + this.getAttribute('data-name') + ' категории '
+                    + this.getAttribute('data-category') + 'будет удален без возможности восстановления!')">
                 <input type="submit" value="Удалить из корзины"></a></td>
         </tr>
     </th:block>
@@ -81,6 +73,6 @@
 <a href="/content">Back</a>
 <br>
 <br>
-<%@include file="../footer.html" %>
+<div th:include="footer"></div>
 </body>
 </html>

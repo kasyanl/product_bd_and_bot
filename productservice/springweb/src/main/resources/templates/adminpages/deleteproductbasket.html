@@ -1,33 +1,19 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ page contentType="text/html;charset=UTF-8"%>
-<html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
     <title>Удаление продукта</title>
     <style>
         body {
             background-color: #CCFFCC;
-            background-image: url(../../static/img/bg.jpg);
+            background-image: url(/img/bg.jpg);
         }
     </style>
 </head>
 <body align="center">
-<%@include file="../header.html"%>
-<nav class="navbar navbar-light" style="background-color: #bdb6b6;">
-    <h3>
-        <ul>
-            <a href="/content" class="text-primary">Главная</a> |
-            <a href="/product/allproduct">Список всех продуктов</a> |
-            <a href="/selectcategorybyread">Получить список одной категории</a> |
-            <a href="/product/addproduct">Добавить новый продукт</a>|
-            <a href="/product/bascket">Корзина</a>|
-            <a href="/product/buystarted">Касса</a>|
-            <a href="/">На стартовую страницу</a>
-        </ul>
-    </h3>
-</nav>
+<div th:insert="~{header :: head}"></div>
+<div th:insert="~{adminpages/nav :: nav}"></div>
 <h2>Удаление продукта</h2>
 <h3>Продукт удален из корзины!!</h3>
-<%@include file="../footer.html"%>
+<div th:include="footer"></div>
 <br>
 <br>
 </body>

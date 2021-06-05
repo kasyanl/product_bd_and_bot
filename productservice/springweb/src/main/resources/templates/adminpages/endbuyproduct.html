@@ -5,12 +5,12 @@
     <style>
         body {
             background-color: #CCFFCC;
-            background-image: url(../../static/img/bg.jpg);
+            background-image: url(/img/bg.jpg);
         }
     </style>
 </head>
 <body align="center">
-<%@include file="../header.html" %>
+<div th:insert="~{header :: head}"></div>
 <h1>Проверьте, пожалуйста, список покупок</h1>
 
 <table class="table" align="center">
@@ -22,17 +22,17 @@
         <th width="100" align="center"><b> конечная цена, BYN</b></th>
         <th width="100" align="center"><b></b></th>
     </tr>
-    <th:block th:each="product : ${product}">
+    <th:block th:each="buyProduct : ${product}">
         <tr>
-            <td align="center" th:text="${product.id}"></td>
-            <td align="center" th:text="${product.name}"></td>
-            <td align="center" th:text="${product.actualPrice}"></td>
-            <td align="center" th:text="${product.quantity}"></td>
-            <td align="center" th:text="${product.totalPrice}"></td>
-            <td><a href="/product/deleteproductbuy?id=${product.id}" title="Удалить"
-                   onclick="return confirm('Удалить продукт <${product.name}>?')"><input
-                    type="image" src="/download/xls/del.png"
-                    width="18" height="18" alt="Очистить корзину"></a></td>
+            <td align="center" th:text="${buyProduct.id}"></td>
+            <td align="center" th:text="${buyProduct.name}"></td>
+            <td align="center" th:text="${buyProduct.actualPrice}"></td>
+            <td align="center" th:text="${buyProduct.quantity}"></td>
+            <td align="center" th:text="${buyProduct.totalPrice}"></td>
+            <td><a href="#" th:href="@{/product/deleteproductbuy(id=${buyProduct.id})}" title="Удалить"
+                  th:data-name="${buyProduct.name}"
+                   onclick="return confirm('Удалить продукт ' + this.getAttribute('data-name') + '?')">
+                <input type="image" th:src="@{/img/del.png}" width="18" height="18" alt="Удалить"></a>
             </td>
         </tr>
     </th:block>
@@ -50,10 +50,10 @@
     </tr>
 </table>
 <a href="/product/checkend" title="Оплатить">
-    <input type="image" src="/download/xls/kassa.png"
+    <input type="image" src="/img/kassa.png"
            width="100" height="100" alt="Оплатить" value="Оплатить"></a>
 <a href="/product/failbuyproduct" title="Отмена">
-    <input type="image" src="/download/xls/del.png"
+    <input type="image" src="/img/del.png"
            width="100" height="100" alt="Отмена" value="Отмена"></a>
 <br>
 <br>
@@ -61,7 +61,7 @@
 <a href="/content">Back</a>
 <br>
 <br>
-<%@include file="../footer.html" %>
+<div th:include="footer"></div>
 <br>
 <br>
 </body>

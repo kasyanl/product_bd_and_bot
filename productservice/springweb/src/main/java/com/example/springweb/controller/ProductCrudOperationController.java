@@ -89,8 +89,8 @@ public class ProductCrudOperationController {
     }
 
     // получение страницы с сообщением, что продукт удален из корзины
-    @GetMapping(value = "/deleteproductbasket")
-    public ModelAndView deleteproductbasket(@RequestParam(value = "id") int id) {
+    @GetMapping(value = "/deleteproductbasket/{id}")
+    public ModelAndView deleteproductbasket(@PathVariable("id") int id) {
         productOfDeleteService.deleteOfBasket(id);
         return new ModelAndView("adminpages/deleteproductbasket");
     }
@@ -110,8 +110,8 @@ public class ProductCrudOperationController {
     }
 
     // получение страницы с сообщением, что продукт восстановлен
-    @GetMapping(value = "/recoveredproduct")
-    public ModelAndView recoveredProduct(@RequestParam(value = "id") int id) {
+    @GetMapping(value = "/recoveredproduct/{id}")
+    public ModelAndView recoveredProduct(@PathVariable("id") int id) {
         utilService.recovered(id);
         return new ModelAndView("adminpages/recoveredproduct");
     }

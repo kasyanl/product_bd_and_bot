@@ -6,8 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 
 @Service
 public class ProductService {
@@ -30,6 +29,18 @@ public class ProductService {
     @Transactional
     public Optional <Product> findByName(String name){
         return productRepository.findByName(name);
+    }
+
+    public List<String> findByCategoryName(){
+        List<Product> list = productRepository.findAll();
+        List<String> str = new ArrayList<>();
+        for(Product product : list){
+            str.add(product.getCategory());
+        }
+        Set<String> set = new HashSet<>(str);
+        str.clear();
+        str.addAll(set);
+        return str;
     }
 
     // ищем все Products одной категории и отправляем в БД соответствующий запрос

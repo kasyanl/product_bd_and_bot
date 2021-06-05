@@ -1,15 +1,16 @@
-<html lang="en">
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
 <head>
-    <title>Добро пожаловать</title>
+    <meta charset="UTF-8">
+    <title>Система учета продуктов</title>
     <style>
         body {
             background-color: #CCFFCC;
-            background-image: url(../static/img/bg.jpg);
+            background-image: url(/img/bg.jpg);
         }
     </style>
 </head>
 <body align="center">
-<header style = "background-color:khaki; height:100px" url="..downloads/xls/header.jpg"></header>
+<div th:insert="~{header :: head}"></div>
 <h2>Добро пожаловать в Систему учета продуктов.
     <br>Для работы с базой данных введите логин и пароль, либо войдите как гость (доступна возможность только просмотра)
 </h2>
@@ -139,7 +140,7 @@
 </script>
 
 <br>
-<%@include file="footer.jsp" %>
+<div th:include="footer"></div>
 <br>
 <br>
 </body>

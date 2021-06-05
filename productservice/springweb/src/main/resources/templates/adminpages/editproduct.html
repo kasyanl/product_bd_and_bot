@@ -4,27 +4,14 @@
     <style>
         body {
             background-color: #CCFFCC;
-            background-image: url(../../static/img/bg.jpg);
+            background-image: url(/img/bg.jpg);
         }
     </style>
 </head>
 <body align="center">
-<%@include file="../header.html"%>
-<nav class="navbar navbar-light" style="background-color: #bdb6b6;">
-    <h3>
-        <ul>
-            <a href="/content" class="text-primary">Главная</a> |
-            <a href="/product/allproduct">Список всех продуктов</a> |
-            <a href="/selectcategorybyread">Получить список одной категории</a> |
-            <a href="/product/addproduct">Добавить новый продукт</a>|
-            <a href="/product/bascket">Корзина</a>|
-            <a href="/product/buystarted">Касса</a>|
-            <a href="/">На стартовую страницу</a>
-        </ul>
-    </h3>
-</nav>
+<div th:insert="~{header :: head}"></div>
+<div th:insert="~{adminpages/nav :: nav}"></div>
 <h2>Замените необходимые данные:</h2>
-<!--   <% Product product = (Product) request.getAttribute("editProduct"); %>&ndash;&gt;-->
 
 <form action="#" th:href="@{/product/editproduct/{id}(id=${getId})}" method="post">
     <label>
@@ -48,14 +35,14 @@
     наличе, кг(шт)<br>
     <label><input name="totalVolume" placeholder="наличие" type="text"
                   th:value="${getTotalVolume}"></label> <br/>
-    <br> <input type="image" src="/download/xls/save.jpg"
+    <br> <input type="image" src="/img/save.jpg"
                 width="50" height="50" alt="Добавить новый продукт" value="Сохранить">
 </form>
 <a href="/content">Home</a>
 <br>
 <br>
 <br>
-<%@include file="../footer.html"%>
+<div th:include="footer"></div>
 <br>
 <br>
 </body>
