@@ -31,8 +31,7 @@ public class ExportToExcelService {
 
     // формирование таблицы excel и добавление данных из List
     public void exportList(List<Product> listProduct) {
-
-        var sheet = getRows();
+        var sheet = workbook.createSheet("List products");
         // даем название колонок таблицы
         extracted(sheet);
 
@@ -64,7 +63,7 @@ public class ExportToExcelService {
             i++;
         }
         // название и путь для нашего файла
-        var  filename = "src/main/resources/static/img/productlist.xls";
+        var  filename = "springweb/src/main/resources/static/img/productlist.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
@@ -76,8 +75,7 @@ public class ExportToExcelService {
 
     // формирование таблицы excel и добавление данных из List
     public void exportListOfBasket(List<ProductOfDelete> listProductDelete) {
-
-        var sheet = getRows();
+        var sheet = workbook.createSheet("List products");
         // даем название колонок таблицы
         extracted(sheet);
 
@@ -111,7 +109,7 @@ public class ExportToExcelService {
             i++;
         }
         // название и путь для нашего файла
-        var filename = "src/main/resources/static/img/productlist.xls";
+        var filename = "springweb/src/main/resources/static/img/productlist.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
@@ -178,7 +176,7 @@ public class ExportToExcelService {
         totalPrice.setCellValue(utilService.totalPrise());
 
         // название и путь для нашего файла (по умолчанию в корне проекта)
-        var filename = "src/main/resources/static/img/check.xls";
+        var filename = "springweb/src/main/resources/static/img/check.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
