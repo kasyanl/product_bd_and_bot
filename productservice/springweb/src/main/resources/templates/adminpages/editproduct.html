@@ -18,12 +18,9 @@
         категория<br>
         <select th:value="${getCategory}" name="category">
             <option th:value="${getCategory}"> <b th:text="${getCategory}"></b></option>
-            <option value="FRUITS">FRUITS</option>
-            <option value="BERRIES">BERRIES</option>
-            <option value="VEGETABLES">VEGETABLES</option>
-            <option value="MILK_PRODUCT">MILK_PRODUCT</option>
-            <option value="MEAT">MEAT</option>
-            <option value="ALCOHOLIC_BEVERAGES">ALCOHOLIC_BEVERAGES</option>
+            <th:block th:each="product : ${categoryName}">
+            <option th:value="${product}"><b th:text="${product}"></b></option>
+            </th:block>>
         </select>
     </label><br/>
     название продукта<br>

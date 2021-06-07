@@ -17,7 +17,6 @@ public class ExportToExcelService {
     static HSSFWorkbook workbook = new HSSFWorkbook();
     private ProductService productService;
     private UtilService utilService;
-    static System.Logger logger;
 
     // сервис для экспорта всего списка продуктов в excel
     public void exportAllList(List<Product> listProduct) {
@@ -26,12 +25,13 @@ public class ExportToExcelService {
 
     // сервис на экспорт списка продуктов одной категории в excel
     public void exportCategoryList(String category) {
-       exportList(productService.fineCategoryForRead(category));
+        exportList(productService.fineCategoryForRead(category));
     }
 
     // формирование таблицы excel и добавление данных из List
     public void exportList(List<Product> listProduct) {
-        var sheet = workbook.createSheet("List products");
+
+        var sheet = getRows();
         // даем название колонок таблицы
         extracted(sheet);
 
@@ -62,20 +62,22 @@ public class ExportToExcelService {
 
             i++;
         }
-        // название и путь для нашего файла
-        var  filename = "springweb/src/main/resources/static/img/productlist.xls";
+        // название и путь для нашего файла.
+
+        var filename = "productservice/springweb/src/main/resources/static/img/productlist.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
-        } catch (IOException file) {
-            file.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 
 
     // формирование таблицы excel и добавление данных из List
     public void exportListOfBasket(List<ProductOfDelete> listProductDelete) {
-        var sheet = workbook.createSheet("List products");
+
+        var sheet = getRows();
         // даем название колонок таблицы
         extracted(sheet);
 
@@ -109,12 +111,12 @@ public class ExportToExcelService {
             i++;
         }
         // название и путь для нашего файла
-        var filename = "springweb/src/main/resources/static/img/productlist.xls";
+        var filename = "productservice/springweb/src/main/resources/static/img/productlist.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
-        } catch (IOException file) {
-            file.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 
@@ -176,17 +178,17 @@ public class ExportToExcelService {
         totalPrice.setCellValue(utilService.totalPrise());
 
         // название и путь для нашего файла (по умолчанию в корне проекта)
-        var filename = "springweb/src/main/resources/static/img/check.xls";
+        var filename = "productservice/springweb/src/main/resources/static/img/check.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
-        } catch (IOException file) {
-            file.printStackTrace();
+        } catch (IOException ex) {
+            ex.printStackTrace();
         }
     }
 
     private Sheet getRows() {
-        Sheet sheet = workbook.createSheet(); //название вкладки
+        Sheet sheet = workbook.createSheet("productlist"); //название вкладки
         sheet.setColumnWidth(0, 1500); // ширина строк
         sheet.setColumnWidth(1, 6000);
         sheet.setColumnWidth(2, 6000);
@@ -214,7 +216,6 @@ public class ExportToExcelService {
         var actualPriceTop = row.createCell(6);
         actualPriceTop.setCellValue("Total, BYN");// название седьмого столбца
     }
-
 
     @Autowired
     public void setProductService(ProductService productService) {

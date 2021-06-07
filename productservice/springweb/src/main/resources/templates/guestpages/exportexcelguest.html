@@ -13,7 +13,7 @@
 <div th:insert="~{header :: head}"></div>
 <div th:include="guestpages/navguest"></div>
 <h3>Список успешно сформирован. Нажмите на значок, для скачивания</h3>
-<a href="/img/productlist.xls" title="Сохранить">
+<a hhref="#" th:href="@{/img/productlist.xls}" title="Сохранить">
     <input type="image" src="/img/excel.png"
            width="100" height="100" alt="Экспорт в Excel файл" value="Экспорт в Excel файл"></a>
 <br>

@@ -39,8 +39,10 @@ public class ProductCrudOperationController {
 
     // получение страницы с формой для добавления продукта
     @GetMapping(value = "/addproduct")
-    public String addproduct() {
-        return "adminpages/addproduct";
+    public ModelAndView addproduct() {
+        var modelAndView = new ModelAndView("adminpages/addproduct");
+        modelAndView.addObject("categoryName", productService.findByCategoryName());
+        return modelAndView;
     }
 
     // отправка данных для добавления продуктов в БД и перенаправления на страницу со всем списком
@@ -127,6 +129,7 @@ public class ProductCrudOperationController {
         modelAndView.addObject("getPrice", product.getPrice());
         modelAndView.addObject("getDiscount", product.getDiscount());
         modelAndView.addObject("getTotalVolume", product.getTotalVolume());
+        modelAndView.addObject("categoryName", productService.findByCategoryName());
         return modelAndView;
     }
 
