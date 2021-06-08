@@ -1,0 +1,78 @@
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Касса</title>
+    <style>
+        body {
+            background-color: #CCFFCC;
+            background-image: url(/static/img/bg.jpg);
+        }
+    </style>
+</head>
+<body align="center">
+<div th:insert="~{header :: head}"></div>
+<h1>Выберите </h1>
+
+<table class="table" align="center">
+    <tr>
+        <th colspan="2" width="100" align="center"><b> ID</b></th>
+        <th colspan="2" align="center"><b> категория</b></th>
+        <th colspan="2" align="center"><b> название</b></th>
+        <th colspan="2" width="100" align="center"><b> цена, BYN</b></th>
+        <th colspan="2" width="100" align="center"><b> скидка, %</b></th>
+        <th colspan="2" width="100" align="center"><b> конечная цена, BYN</b></th>
+        <th colspan="2" width="100" align="center"><b> наличие, кг(шт)</b></th>
+        <td>Выбор количества товара</td>
+
+    </tr>
+    <th:block th:each="product : ${buyProduct}">
+        <tr>
+            <td colspan="2" align="center" th:text="${product.id}"></td>
+            <td colspan="2" align="center" th:text="${product.category}"></td>
+            <td colspan="2" align="center" th:text="${product.name}"></td>
+            <td colspan="2" align="center" th:text="${product.price}"></td>
+            <td colspan="2" align="center" th:text="${product.discount}"></td>
+            <td colspan="2" align="center" th:text="${product.actualPrice}"></td>
+            <td colspan="2" align="center" th:text="${product.totalVolume}"></td>
+            <td>
+                <form action="#" th:action="@{/product/buyproduct(id=${product.id}, totalVolume=${product.totalVolume})}"
+                      title="добавить" method="post">
+                    <label><input size="10" name="quantity" placeholder="...а, кг(шт)" type="text"></label>
+                    <input type="image"
+                           src="/static/img/add.png"
+                           width="20" height="20"
+                           alt="Добавить новый продукт"
+                           value="добавить">
+                </form>
+            </td>
+        </tr>
+    </th:block>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr></tr>
+    <tr>
+        <th colspan="2"></th>
+        <th colspan="2"></th>
+        <th colspan="2"></th>
+        <th colspan="2"></th>
+        <th colspan="2">Итого:</th>
+        <th colspan="2" th:text="${totalPrice}"></th>
+        <th colspan="2"><b> BYN </b></th>
+        <th>
+            <a href="/product/endbuyproduct" title="Оформить покупку">
+                <input type="image" src="/static/img/kassa.png"
+                       width="80" height="80" alt="Оформить покупку" value="Оформить покупку"></a>
+        </th>
+        <th></th>
+    </tr>
+</table>
+
+<a href="/content">Back</a>
+<br>
+<br>
+<div th:include="footer"></div>
+<br>
+<br>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Касса</title>
+    <style>
+        body {
+            background-color: #CCFFCC;
+            background-image: url(/static/img/bg.jpg);
+        }
+    </style>
+</head>
+<body align="center">
+<div th:insert="~{header :: head}"></div>
+<div th:insert="~{adminpages/nav :: nav}"></div>
+<h3>Перейти к этапу выбора товаров?</h3>
+
+<form action="/product/allproduct" method="get">
+    <input type="submit" value="Список продуктов">
+</form>
+<form action="/product/buyproduct" method="get">
+    <input type="submit" value="В кассу">
+</form>
+<div th:include="footer"></div>
+<br>
+<br>
+</body>
+</html>

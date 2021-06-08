@@ -1,0 +1,61 @@
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Система учета продуктов</title>
+    <style>
+        body {
+            background-color: #CCFFCC;
+            background-image: url(/static/img/bg.jpg);
+        }
+    </style>
+</head>
+<body align="center">
+<div th:insert="~{header :: head}"></div>
+<div th:include="guestpages/navguest"></div>
+<h1>Весь список продуктов</h1>
+
+<h3 align="right"><a href="/exportexcelguest">
+    <input type="image" src="/static/img/excel.png"
+           width="100" height="100" alt="Экспорт в Excel файл" value="Экспорт в Excel файл"></a></h3>
+
+<table class="table" align="center">
+    <tr>
+        <th colspan="2" width="100" align="center"><b> ID</b></th>
+        <th colspan="2" align="center"><b> категория</b></th>
+        <th colspan="2" align="center"><b> название</b></th>
+        <th colspan="2" width="100" align="center"><b> цена, BYN</b></th>
+        <th colspan="2" width="100" align="center"><b> скидка, %</b></th>
+        <th colspan="2" width="100" align="center"><b> конечная цена, BYN</b></th>
+        <th colspan="2" width="100" align="center"><b> наличие, кг(шт)</b></th>
+    </tr>
+    <tr th:include="guestpages/sortelementguest"></tr>
+    <th:block th:each="product : ${allProductGuest}">
+        <tr>
+            <td colspan="2" align="center" th:text="${product.id}"></td>
+            <td colspan="2" align="center" th:text="${product.category}"></td>
+            <td colspan="2" align="center" th:text="${product.name}"></td>
+            <td colspan="2" align="center" th:text="${product.price}"></td>
+            <td colspan="2" align="center" th:text="${product.discount}"></td>
+            <td colspan="2" align="center" th:text="${product.actualPrice}"></td>
+            <td colspan="2" align="center" th:text="${product.totalVolume}"></td>
+        </tr>
+    </th:block>
+    <tr>
+        <th colspan="2" width="100" align="center"><b> ID</b></th>
+        <th colspan="2" align="center"><b> категория</b></th>
+        <th colspan="2" align="center"><b> название</b></th>
+        <th colspan="2" width="100" align="center"><b> цена, BYN</b></th>
+        <th colspan="2" width="100" align="center"><b> скидка, %</b></th>
+        <th colspan="2" width="100" align="center"><b> конечная цена, BYN</b></th>
+        <th colspan="2" width="100" align="center"><b> наличие, кг(шт)</b></th>
+    </tr>
+</table>
+
+<a href="/contentguest">Back</a>
+<br>
+<br>
+<div th:include="footer"></div>
+<br>
+<br>
+</body>
+</html>

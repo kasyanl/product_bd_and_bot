@@ -9,8 +9,9 @@
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <modules>
-        <module>springweb</module>
+        <module>db</module>
         <module>bot</module>
+        <module>webinterface</module>
     </modules>
 
     <properties>
@@ -21,5 +22,4 @@
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.login>856c50e65c1004b5929a5ec16ab7bbbe9f342435</sonar.login>
     </properties>
-
 </project>

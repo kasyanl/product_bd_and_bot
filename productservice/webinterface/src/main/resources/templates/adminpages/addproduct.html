@@ -1,0 +1,41 @@
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Добавление нового продукта</title>
+    <style>
+        body {
+            background-color: #CCFFCC;
+            background-image: url(/static/img/bg.jpg);
+        }
+    </style>
+</head>
+<body align="center">
+<div th:insert="~{header :: head}"></div>
+<div th:insert="~{adminpages/nav :: nav}"></div>
+<h2>Добавление продукта:</h2>
+
+<form  action="/product/addproduct" method="post">
+
+    категория<br><label>
+    <select name="category">
+        <th:block th:each="product : ${categoryName}">
+            <option th:value="${product}"><b th:text="${product}"></b></option>
+        </th:block>>
+    </select>
+</label><br>
+    <label><input name="name" placeholder="Название" type="text"></label><br/>
+    <label><input name="price" placeholder="цена, BYN" type="text"></label> <br/>
+    <label><input name="discount" placeholder="Скидка, %" type="text"></label> <br/>
+    <label><input name="totalVolume" placeholder="Наличие, кг(шт)" type="text"></label> <br/>
+    <br> <input type="image" src="/static/img/save.jpg"
+                width="50" height="50" alt="Добавить новый продукт" value="Сохранить">
+</form>
+<br>
+<br>
+<a href="/content">Back</a>
+<br>
+<br>
+<div th:include="footer"></div>
+<br>
+<br>
+</body>
+</html>

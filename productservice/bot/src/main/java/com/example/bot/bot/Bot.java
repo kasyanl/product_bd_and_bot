@@ -15,7 +15,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import java.util.Optional;
 
 @Service
-@ComponentScan({"com.example.springweb"})
+@ComponentScan(basePackages = "com.example.springweb")
 @PropertySource("classpath:application.properties")
 public class Bot extends TelegramLongPollingBot {
 
