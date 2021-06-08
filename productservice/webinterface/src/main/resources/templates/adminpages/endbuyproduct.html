@@ -5,7 +5,7 @@
     <style>
         body {
             background-color: #CCFFCC;
-            background-image: url(/static/img/bg.jpg);
+            background-image: url(/img/bg.jpg);
         }
     </style>
 </head>
@@ -32,7 +32,7 @@
             <td><a href="#" th:href="@{/product/deleteproductbuy(id=${buyProduct.id})}" title="Удалить"
                   th:data-name="${buyProduct.name}"
                    onclick="return confirm('Удалить продукт ' + this.getAttribute('data-name') + '?')">
-                <input type="image" th:src="@{/static/img/del.png}" width="18" height="18" alt="Удалить"></a>
+                <input type="image" th:src="@{/img/del.png}" width="18" height="18" alt="Удалить"></a>
             </td>
         </tr>
     </th:block>
@@ -50,10 +50,10 @@
     </tr>
 </table>
 <a href="/product/checkend" title="Оплатить">
-    <input type="image" src="/static/img/kassa.png"
+    <input type="image" src="/img/kassa.png"
            width="100" height="100" alt="Оплатить" value="Оплатить"></a>
 <a href="/product/failbuyproduct" title="Отмена">
-    <input type="image" src="/static/img/del.png"
+    <input type="image" src="/img/del.png"
            width="100" height="100" alt="Отмена" value="Отмена"></a>
 <br>
 <br>

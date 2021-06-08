@@ -55,30 +55,25 @@ public class IndexController {
         modelAndView.addObject("categoryName", productService.findByCategoryName());
         return modelAndView;
     }
-//
-//    // экспорт данных из корзины в excel
-//    @GetMapping(value = "/exportexceldel")
-//    public String exportExcelDel() {
-//        exportToExcelService.exportListOfBasket(productOfDeleteService.findAllDeleted());
-//        return "adminpages/exportexceldel";
-//    }
+
 // экспорт данных  в excel основной БД для юзера
 
     @GetMapping(value = "/exportexcel")
     @ResponseBody
     public ModelAndView exportExcel() {
-        ModelAndView modelAndView = new ModelAndView("adminpages/exportexcel");
-        String data = exportToExcelService.exportAllList(productService.findAll());
-
-        modelAndView.addObject("data", data);
+        var modelAndView = new ModelAndView("adminpages/exportexcel");
+        exportToExcelService.exportAllList(productService.findAll());
+//        modelAndView.addObject("data", ExportToExcelService.DATA);
         return modelAndView;
     }
 
     // экспорт данных  в excel основной БД для гостя
     @GetMapping(value = "/exportexcelguest")
+    @ResponseBody
     public ModelAndView exportExcelGuest() {
-        ModelAndView modelAndView = new ModelAndView("guestpages/exportexcelguest");
-        modelAndView.addObject("dataG", exportToExcelService.exportAllList(productService.findAll()));
+        var modelAndView = new ModelAndView("guestpages/exportexcelguest");
+        exportToExcelService.exportAllList(productService.findAll());
+//        modelAndView.addObject("dataG", exportToExcelService.DATA);
         return modelAndView;
 
     }

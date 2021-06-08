@@ -4,7 +4,7 @@
     <style>
         body {
             background-color: #CCFFCC;
-            background-image: url(/static/img/bg.jpg);
+            background-image: url(/img/bg.jpg);
         }
     </style>
 </head>
@@ -12,7 +12,7 @@
 <div th:insert="~{header :: head}"></div>
 <div th:insert="~{adminpages/nav :: nav}"></div>
 <h3>Список успешно сформирован. Нажмите на значок, для скачивания</h3>
-<a href="#" th:href="@{/img/{path}productlist.xls(path=${data})}" title="Сохранить">
+<a href="/img/productlist.xls" title="Сохранить">
     <input type="image" th:src="@{/img/excel.png}"
            width="100" height="100" alt="Экспорт в Excel файл" value="Экспорт в Excel файл"></a>
 <br>

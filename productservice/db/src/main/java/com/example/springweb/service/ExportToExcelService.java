@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 
 import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 @Service
@@ -19,42 +17,46 @@ public class ExportToExcelService {
     private ProductService productService;
     private UtilService utilService;
 
+//    public static String DATA = "";
+
     // сервис для экспорта всего списка продуктов в excel
-    public String exportAllList(List<Product> listProduct) {
-        return exportList(listProduct);
+    public void exportAllList(List<Product> listProduct) {
+        exportList(listProduct);
     }
 
     // сервис на экспорт списка продуктов одной категории в excel
-    public String exportCategoryList(String category) {
-        return exportList(productService.fineCategoryForRead(category));
+    public void exportCategoryList(String category) {
+        exportList(productService.fineCategoryForRead(category));
     }
 
     // формирование таблицы excel и добавление данных из List
-    public String exportList(List<Product> listProduct) {
+    public void exportList(List<Product> listProduct) {
 
         var sheet = getRows();
         // даем название колонок таблицы
         extracted(sheet);
 
         // добавляем данные из List
-        CreateCell(listProduct, sheet);
+        createCell(listProduct, sheet);
         // название и путь для нашего файла.
 
-        GregorianCalendar calendar = new GregorianCalendar();
-        String data = ""+ calendar.get(Calendar.DAY_OF_MONTH)+
-                calendar.get(Calendar.HOUR_OF_DAY)+
-                calendar.get(Calendar.MINUTE);
-        var filename = "productservice/webinterface/src/main/resources/static/img/" +data+ "productlist.xls";
+//        var calendar = new GregorianCalendar();
+//        DATA = "productlist" + calendar.get(Calendar.YEAR) +
+//                calendar.get(Calendar.MONTH) +
+//                calendar.get(Calendar.DAY_OF_MONTH) +
+//                calendar.get(Calendar.HOUR_OF_DAY) +
+//                calendar.get(Calendar.MINUTE) +
+//                calendar.get(Calendar.SECOND) + ".xls";
+        var filename = "webinterface/src/main/resources/static/img/productlist.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        return data;
     }
 
-    private void CreateCell(List<Product> listProduct, Sheet sheet) {
+    private void createCell(List<Product> listProduct, Sheet sheet) {
         var i = 1;
         for (Product product : listProduct) {
             var rowProduct = sheet.createRow(i);
@@ -85,7 +87,7 @@ public class ExportToExcelService {
 
 
     // формирование таблицы excel из списка покупок
-    public String check(List<BuyProduct> listProduct) {
+    public void check(List<BuyProduct> listProduct) {
 
         Sheet sheet = workbook.createSheet("check"); //название вкладки
         sheet.setColumnWidth(0, 2000); // ширина строк
@@ -141,22 +143,19 @@ public class ExportToExcelService {
         var totalPrice = rowProduct.createCell(4);
         totalPrice.setCellValue(utilService.totalPrise());
 
-        GregorianCalendar calendar = new GregorianCalendar();
-        String data = "productlist"+calendar.get(Calendar.YEAR)+"-"+
-                calendar.get(Calendar.MONTH)+"-"+
-                calendar.get(Calendar.DAY_OF_MONTH)+"-"+
-                calendar.get(Calendar.HOUR_OF_DAY)+"-"+
-                calendar.get(Calendar.MINUTE)+"-"+
-                calendar.get(Calendar.SECOND)+ ".xls";
-        // название и путь для нашего файла (по умолчанию в корне проекта)
-        var filename = "productservice/webinterface/src/main/resources/static/img/"+data;
+//        var calendar = new GregorianCalendar();
+//        DATA = "check" + calendar.get(Calendar.YEAR) +
+//                calendar.get(Calendar.DAY_OF_MONTH) +
+//                calendar.get(Calendar.HOUR_OF_DAY) +
+//                calendar.get(Calendar.MINUTE) +
+//                calendar.get(Calendar.SECOND) + ".xls";
+        var filename = "webinterface/src/main/resources/static/img/check.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
         } catch (IOException ex) {
             ex.printStackTrace();
         }
-        return data;
     }
 
     private Sheet getRows() {

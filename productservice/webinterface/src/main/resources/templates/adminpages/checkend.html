@@ -4,7 +4,7 @@
   <style>
     body {
       background-color: #CCFFCC;
-      background-image: url(/static/img/bg.jpg);
+      background-image: url(/img/bg.jpg);
     }
   </style>
 </head>
@@ -12,8 +12,8 @@
 <div th:insert="~{header :: head}"></div>
 <div th:insert="~{adminpages/nav :: nav}"></div>
 <h3>Покупка завершена. Нажмите на значок, для скачивания чека</h3>
-<a th:href="@{'/img/' +${chek}}" title="Сохранить">
-  <input type="image" src="/static/img/excel.png"
+<a href="/img/chek.xls" title="Сохранить">
+  <input type="image" src="/img/excel.png"
          width="100" height="100" alt="Экспорт в Excel файл" value="Экспорт в Excel файл"></a>
 <br>
 <br>
