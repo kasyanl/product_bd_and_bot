@@ -75,7 +75,6 @@ public class BuyController {
         var modelAndView = new ModelAndView();
         modelAndView.setViewName("adminpages/checkend");
         exportToExcelService.check(buyProductService.findAllBuyProduct());
-//        modelAndView.addObject("chek", ExportToExcelService.DATA);
         utilService.endTransaction();
         modelAndView.addObject("product", buyProductService.findAllBuyProduct());
         return modelAndView;

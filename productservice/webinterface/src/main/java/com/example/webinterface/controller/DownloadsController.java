@@ -29,7 +29,7 @@ public class DownloadsController {
     public void downloadPDFResource(HttpServletRequest request,
                                     HttpServletResponse response,
                                     @PathVariable("fileName") String fileName) {
-        String dataDirectory = request.getServletContext().getRealPath("/static/img/");
+        String dataDirectory = request.getServletContext().getRealPath("productservice/webinterface/src/main/resources/static/img/");
         var file = Paths.get(dataDirectory, fileName);
         if (Files.exists(file)) {
             response.setContentType("application/xls");

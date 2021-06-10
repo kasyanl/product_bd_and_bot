@@ -24,7 +24,6 @@ public class ExportToExcelController {
     public ModelAndView exportExcelAlcohol(@PathVariable String category) {
         var modelAndView = new ModelAndView("adminpages/exportexcel");
         exportToExcelService.exportCategoryList(category);
-//        modelAndView.addObject("data",  ExportToExcelService.DATA);
         return modelAndView;
     }
 
@@ -34,7 +33,6 @@ public class ExportToExcelController {
     public ModelAndView exportExcelAlcoholGuest(@PathVariable String category) {
         var modelAndView = new ModelAndView("guestpages/exportexcelguest");
         exportToExcelService.exportCategoryList(category);
-//        modelAndView.addObject("dataForG",  ExportToExcelService.DATA);
         return modelAndView;
     }
 

@@ -47,7 +47,7 @@ public class ExportToExcelService {
 //                calendar.get(Calendar.HOUR_OF_DAY) +
 //                calendar.get(Calendar.MINUTE) +
 //                calendar.get(Calendar.SECOND) + ".xls";
-        var filename = "webinterface/src/main/resources/static/img/productlist.xls";
+        var filename = "productservice/webinterface/src/main/resources/static/img/productlist.xls";
 
         try (var out = new FileOutputStream(filename)) {
             workbook.write(out);
@@ -89,7 +89,7 @@ public class ExportToExcelService {
     // формирование таблицы excel из списка покупок
     public void check(List<BuyProduct> listProduct) {
 
-        Sheet sheet = workbook.createSheet("check"); //название вкладки
+        Sheet sheet = workbook.createSheet(); //название вкладки
         sheet.setColumnWidth(0, 2000); // ширина строк
         sheet.setColumnWidth(1, 5000);
         sheet.setColumnWidth(2, 3000);

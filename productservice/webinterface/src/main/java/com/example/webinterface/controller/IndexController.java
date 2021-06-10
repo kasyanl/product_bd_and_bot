@@ -63,7 +63,6 @@ public class IndexController {
     public ModelAndView exportExcel() {
         var modelAndView = new ModelAndView("adminpages/exportexcel");
         exportToExcelService.exportAllList(productService.findAll());
-//        modelAndView.addObject("data", ExportToExcelService.DATA);
         return modelAndView;
     }
 
@@ -73,7 +72,6 @@ public class IndexController {
     public ModelAndView exportExcelGuest() {
         var modelAndView = new ModelAndView("guestpages/exportexcelguest");
         exportToExcelService.exportAllList(productService.findAll());
-//        modelAndView.addObject("dataG", exportToExcelService.DATA);
         return modelAndView;
 
     }

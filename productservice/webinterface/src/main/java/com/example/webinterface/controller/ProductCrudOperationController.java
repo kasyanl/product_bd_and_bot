@@ -89,7 +89,7 @@ public class ProductCrudOperationController {
         productOfDeleteService.saveProductOfDelete(id);
         productService.deleteProduct(id);
 
-        return new ModelAndView("redirect:/product/allproduct");
+        return new ModelAndView("adminpages/allproduct");
     }
 
     // получение страницы с сообщением, что продукт удален из корзины
