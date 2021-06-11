@@ -17,8 +17,6 @@ public class ExportToExcelService {
     private ProductService productService;
     private UtilService utilService;
 
-//    public static String DATA = "";
-
     // сервис для экспорта всего списка продуктов в excel
     public void exportAllList(List<Product> listProduct) {
         exportList(listProduct);
@@ -39,14 +37,6 @@ public class ExportToExcelService {
         // добавляем данные из List
         createCell(listProduct, sheet);
         // название и путь для нашего файла.
-
-//        var calendar = new GregorianCalendar();
-//        DATA = "productlist" + calendar.get(Calendar.YEAR) +
-//                calendar.get(Calendar.MONTH) +
-//                calendar.get(Calendar.DAY_OF_MONTH) +
-//                calendar.get(Calendar.HOUR_OF_DAY) +
-//                calendar.get(Calendar.MINUTE) +
-//                calendar.get(Calendar.SECOND) + ".xls";
         var filename = "productservice/webinterface/src/main/resources/static/img/productlist.xls";
 
         try (var out = new FileOutputStream(filename)) {
@@ -143,12 +133,6 @@ public class ExportToExcelService {
         var totalPrice = rowProduct.createCell(4);
         totalPrice.setCellValue(utilService.totalPrise());
 
-//        var calendar = new GregorianCalendar();
-//        DATA = "check" + calendar.get(Calendar.YEAR) +
-//                calendar.get(Calendar.DAY_OF_MONTH) +
-//                calendar.get(Calendar.HOUR_OF_DAY) +
-//                calendar.get(Calendar.MINUTE) +
-//                calendar.get(Calendar.SECOND) + ".xls";
         var filename = "webinterface/src/main/resources/static/img/check.xls";
 
         try (var out = new FileOutputStream(filename)) {

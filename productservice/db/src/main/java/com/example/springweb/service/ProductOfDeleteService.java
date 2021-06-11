@@ -10,35 +10,31 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@Transactional
 public class ProductOfDeleteService {
 
     private ProductOfDeleteRepository productOfDeleteRepository;
     private ProductService productService;
 
     //отправка запроса на получение всех ранее удаленных продуктов из основной БД
-    @Transactional
     public List<ProductOfDelete> findAllDeleted() {
         return productOfDeleteRepository.findAll();
     }
 
-    @Transactional
     public Optional<ProductOfDelete> findProductOfBasketByID(int id) {
         return productOfDeleteRepository.findById(id);
     }
 
     //находим Product по его ID  в корзине и отправка запроса для удаления
-    @Transactional
     public void deleteOfBasket(int id) {
         productOfDeleteRepository.deleteById(id);
     }
 
     //очистка всех данных из корзины
-    @Transactional
     public void cleanBasket() {
         productOfDeleteRepository.deleteAll();
     }
 
-    @Transactional
     public void saveProductOfDelete(int id) {
 
         var productOfDelete = new ProductOfDelete();

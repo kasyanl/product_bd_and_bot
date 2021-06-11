@@ -1,16 +1,17 @@
 package com.example.springweb.bean;
 
 import lombok.*;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Setter
 @Getter
 @ToString
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "product")
@@ -35,13 +36,17 @@ public class Product {
     @UpdateTimestamp
     private Date data;
 
-    public Product(Integer id, String category, String name, double price, double discount, double actualPrice, double totalVolume) {
-        this.id = id;
-        this.category = category;
-        this.name = name;
-        this.price = price;
-        this.discount = discount;
-        this.actualPrice = actualPrice;
-        this.totalVolume = totalVolume;
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        var product = (Product) o;
+
+        return Objects.equals(id, product.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 2042274511;
     }
 }

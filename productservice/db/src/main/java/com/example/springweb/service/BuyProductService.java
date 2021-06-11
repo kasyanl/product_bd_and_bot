@@ -9,31 +9,28 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
+@Transactional
 public class BuyProductService {
 
     private BuyProductRepository buyProductRepository;
     private ProductService productService;
 
     //отправка запроса на получение всех ранее удаленных продуктов из основной БД
-    @Transactional
     public List<BuyProduct> findAllBuyProduct() {
         return buyProductRepository.findAll();
     }
 
     //находим Product по его ID с писке покупок и отправляем запрос на его даление
-    @Transactional
     public void deleteBuy(int id) {
         buyProductRepository.deleteById(id);
     }
 
     // очистка БД с покупками
-    @Transactional
     public void cleanBuyDB() {
         buyProductRepository.deleteAll();
     }
 
     // выбор продукта для покупки (передаем количество или вес продукта), добавляем в отдельную БД
-    @Transactional
     public void saveBayProduct(int id, double quantity) {
         var product = productService.findById(id);
         var buyProduct = new BuyProduct();

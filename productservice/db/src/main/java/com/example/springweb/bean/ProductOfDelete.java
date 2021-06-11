@@ -1,19 +1,20 @@
 package com.example.springweb.bean;
 
 import lombok.*;
+import org.hibernate.Hibernate;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.Objects;
 
 @Entity
 @Setter
 @Getter
 @ToString
-@EqualsAndHashCode
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "productofdelete")
+@Table(name = "productOfDelete")
 public class ProductOfDelete {
     @Id
     private Integer id;
@@ -34,13 +35,18 @@ public class ProductOfDelete {
     @UpdateTimestamp
     private Date data;
 
-    public ProductOfDelete(Integer id, String category, String name, double price, double actualPrice, double totalVolume, double discount) {
-        this.id = id;
-        this.category = category;
-        this.name = name;
-        this.price = price;
-        this.actualPrice = actualPrice;
-        this.totalVolume = totalVolume;
-        this.discount = discount;
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
+        ProductOfDelete that = (ProductOfDelete) o;
+
+        return Objects.equals(id, that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return 1356400245;
     }
 }
