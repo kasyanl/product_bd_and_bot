@@ -15,7 +15,6 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-@NoArgsConstructor
 @Table(name = "buyProduct")
 public class BuyProduct {
     @Id

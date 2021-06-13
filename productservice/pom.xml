@@ -23,6 +23,7 @@
         <sonar.login>856c50e65c1004b5929a5ec16ab7bbbe9f342435</sonar.login>
     </properties>
     <build>
+        <pluginManagement>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
@@ -77,5 +78,6 @@
             </plugin>
 
         </plugins>
+        </pluginManagement>
     </build>
 </project>

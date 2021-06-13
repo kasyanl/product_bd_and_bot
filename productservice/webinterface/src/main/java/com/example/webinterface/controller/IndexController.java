@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@ComponentScan(basePackages = "com.example.springweb")
+@ComponentScan(basePackages = "com.example.springweb.service")
 @RequestMapping(value = "/")
 public class IndexController {
 
