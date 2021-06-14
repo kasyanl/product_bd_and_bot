@@ -1,4 +1,4 @@
-package kasyan.springweb.bean;
+package by.kasyan.database.bean;
 
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -15,27 +15,30 @@ import java.util.Objects;
 @ToString
 @RequiredArgsConstructor
 @AllArgsConstructor
-@Table(name = "person")
-public class Person {
-
+@Table(name = "buyProduct")
+public class BuyProduct {
     @Id
     private Integer id;
-    @Column(name = "login")
-    private String login;
-    @Column(name = "password")
-    private String password;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "actual_price")
+    private double actualPrice;
+    @Column(name = "quantity")
+    private double quantity;
+    @Column(name = "total_price")
+    private double totalPrice;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        var person = (Person) o;
+        BuyProduct that = (BuyProduct) o;
 
-        return Objects.equals(id, person.id);
+        return Objects.equals(id, that.id);
     }
 
     @Override
     public int hashCode() {
-        return 1422108840;
+        return 1548262949;
     }
 }

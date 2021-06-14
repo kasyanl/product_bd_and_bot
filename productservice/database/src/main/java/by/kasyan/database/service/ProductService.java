@@ -1,7 +1,7 @@
-package kasyan.springweb.service;
+package by.kasyan.database.service;
 
-import kasyan.springweb.bean.Product;
-import kasyan.springweb.repository.ProductRepository;
+import by.kasyan.database.bean.Product;
+import by.kasyan.database.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

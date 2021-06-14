@@ -1,7 +1,7 @@
-package kasyan.springweb.service;
+package by.kasyan.database.service;
 
-import kasyan.springweb.bean.BuyProduct;
-import kasyan.springweb.bean.Product;
+import by.kasyan.database.bean.BuyProduct;
+import by.kasyan.database.bean.Product;
 import org.apache.poi.hssf.usermodel.HSSFWorkbook;
 import org.apache.poi.ss.usermodel.Sheet;
 import org.springframework.beans.factory.annotation.Autowired;

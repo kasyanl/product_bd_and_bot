@@ -1,7 +1,7 @@
 package com.example.bot.bot;
 
-import kasyan.springweb.bean.Product;
-import kasyan.springweb.service.ProductService;
+import by.kasyan.database.bean.Product;
+import by.kasyan.database.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.ComponentScan;
@@ -15,7 +15,7 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 import java.util.Optional;
 
 @Service
-@ComponentScan(basePackages = "kasyan.springweb")
+@ComponentScan(basePackages = "by.kasyan.database")
 @PropertySource("classpath:application.properties")
 public class Bot extends TelegramLongPollingBot {
 

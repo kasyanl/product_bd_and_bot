@@ -1,7 +1,7 @@
-package kasyan.springweb.service;
+package by.kasyan.database.service;
 
-import kasyan.springweb.bean.ProductOfDelete;
-import kasyan.springweb.repository.ProductOfDeleteRepository;
+import by.kasyan.database.bean.ProductOfDelete;
+import by.kasyan.database.repository.ProductOfDeleteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

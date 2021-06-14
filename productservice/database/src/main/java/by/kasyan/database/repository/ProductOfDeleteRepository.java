@@ -1,6 +1,6 @@
-package kasyan.springweb.repository;
+package by.kasyan.database.repository;
 
-import kasyan.springweb.bean.ProductOfDelete;
+import by.kasyan.database.bean.ProductOfDelete;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

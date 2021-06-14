@@ -1,7 +1,7 @@
-package kasyan.springweb.service;
+package by.kasyan.database.service;
 
-import kasyan.springweb.bean.Person;
-import kasyan.springweb.repository.PersonRepository;
+import by.kasyan.database.bean.Person;
+import by.kasyan.database.repository.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

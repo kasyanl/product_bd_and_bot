@@ -1,6 +1,6 @@
-package kasyan.springweb.repository;
+package by.kasyan.database.repository;
 
-import kasyan.springweb.bean.Product;
+import by.kasyan.database.bean.Product;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;

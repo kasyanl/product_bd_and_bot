@@ -1,4 +1,4 @@
-package kasyan.springweb.bean;
+package by.kasyan.database.bean;
 
 import lombok.*;
 import org.hibernate.Hibernate;

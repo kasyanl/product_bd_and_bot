@@ -1,14 +1,13 @@
-package kasyan.springweb;
+package by.kasyan.database;
 
-import lombok.Generated;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class DbApplication {
+public class DatabaseApplication {
 
-    @Generated
     public static void main(String[] args) {
-        SpringApplication.run(DbApplication.class, args);
+        SpringApplication.run(DatabaseApplication.class, args);
     }
+
 }

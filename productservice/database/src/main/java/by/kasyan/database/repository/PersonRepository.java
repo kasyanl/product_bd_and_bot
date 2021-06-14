@@ -1,6 +1,6 @@
-package kasyan.springweb.repository;
+package by.kasyan.database.repository;
 
-import kasyan.springweb.bean.Person;
+import by.kasyan.database.bean.Person;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

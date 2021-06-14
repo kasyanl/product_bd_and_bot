@@ -9,9 +9,9 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>by.kasyan</groupId>
-    <artifactId>springweb</artifactId>
-    <version>1.0</version>
-    <name>springweb</name>
+    <artifactId>database</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>database</name>
     <description>Demo project for Spring Boot</description>
     <properties>
         <java.version>11</java.version>
@@ -111,7 +111,7 @@
                                 <rule>
                                     <limits>
                                         <limit>
-                                            <minimum>0.7</minimum>
+                                            <minimum>0.1</minimum>
                                         </limit>
                                     </limits>
                                 </rule>
