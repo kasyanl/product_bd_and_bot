@@ -1,9 +1,10 @@
 package com.example.webinterface.controller;
 
-import com.example.springweb.service.BuyProductService;
-import com.example.springweb.service.ExportToExcelService;
-import com.example.springweb.service.ProductService;
-import com.example.springweb.service.UtilService;
+
+import kasyan.springweb.service.BuyProductService;
+import kasyan.springweb.service.ExportToExcelService;
+import kasyan.springweb.service.ProductService;
+import kasyan.springweb.service.UtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@ComponentScan(basePackages = "com.example.springweb")
+@ComponentScan(basePackages = "kasyan.springweb")
 @RequestMapping(value = "/product")
 public class BuyController {
 

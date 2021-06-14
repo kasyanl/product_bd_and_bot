@@ -1,6 +1,6 @@
 package com.example.webinterface.controller;
 
-import com.example.springweb.service.PersonService;
+import kasyan.springweb.service.PersonService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

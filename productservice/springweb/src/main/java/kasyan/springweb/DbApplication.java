@@ -1,4 +1,4 @@
-package com.example.springweb;
+package kasyan.springweb;
 
 import lombok.Generated;
 import org.springframework.boot.SpringApplication;

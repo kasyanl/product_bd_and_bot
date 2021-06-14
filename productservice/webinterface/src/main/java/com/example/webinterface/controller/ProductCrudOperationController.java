@@ -1,8 +1,8 @@
 package com.example.webinterface.controller;
 
-import com.example.springweb.service.ProductOfDeleteService;
-import com.example.springweb.service.ProductService;
-import com.example.springweb.service.UtilService;
+import kasyan.springweb.service.ProductOfDeleteService;
+import kasyan.springweb.service.ProductService;
+import kasyan.springweb.service.UtilService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
