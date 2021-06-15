@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan(basePackages = "kasyan.springweb")
+@ComponentScan(basePackages = {"by.kasyan.database"})
 public class WebinterfaceApplication {
 
     public static void main(String[] args) {

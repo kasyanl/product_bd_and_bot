@@ -11,7 +11,6 @@
     <groupId>com.example</groupId>
     <artifactId>bot</artifactId>
     <version>1.0</version>
-    <packaging>jar</packaging>
     <name>bot</name>
     <description>Demo project for Spring Boot</description>
     <properties>
@@ -33,25 +32,25 @@
             <artifactId>telegrambots-spring-boot-starter</artifactId>
             <version>5.2.0</version>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.projectlombok</groupId>-->
-<!--            <artifactId>lombok</artifactId>-->
-<!--            <version>1.18.20</version>-->
-<!--        </dependency>-->
-
-                <dependency>
-                    <groupId>org.projectlombok</groupId>
-                    <artifactId>lombok</artifactId>
-                    <version>RELEASE</version>
-                    <scope>compile</scope>
-                </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <version>1.18.20</version>
+        </dependency>
         <dependency>
             <groupId>by.kasyan</groupId>
             <artifactId>database</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-            <scope>compile</scope>
         </dependency>
 
     </dependencies>
 
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-maven-plugin</artifactId>
+            </plugin>
+        </plugins>
+    </build>
 </project>

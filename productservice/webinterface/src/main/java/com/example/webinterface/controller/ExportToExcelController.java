@@ -1,8 +1,7 @@
 package com.example.webinterface.controller;
 
-import kasyan.springweb.service.ExportToExcelService;
+import by.kasyan.database.service.ExportToExcelService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@ComponentScan(basePackages = "kasyan.springweb")
 @RequestMapping(value = "/product")
 public class ExportToExcelController {
 

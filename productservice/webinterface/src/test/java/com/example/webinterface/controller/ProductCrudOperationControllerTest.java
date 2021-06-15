@@ -1,8 +1,8 @@
 package com.example.webinterface.controller;
 
-import com.example.springweb.service.ProductOfDeleteService;
-import com.example.springweb.service.ProductService;
-import com.example.springweb.service.UtilService;
+import by.kasyan.database.service.ProductOfDeleteService;
+import by.kasyan.database.service.ProductService;
+import by.kasyan.database.service.UtilService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;

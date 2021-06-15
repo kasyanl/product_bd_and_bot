@@ -1,6 +1,6 @@
 package com.example.webinterface.controller;
 
-import com.example.springweb.service.PersonService;
+import by.kasyan.database.service.PersonService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
