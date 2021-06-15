@@ -22,7 +22,7 @@ public class Bot extends TelegramLongPollingBot {
     @Value("${bot.token}")
     private String token;
 
-   ProductService productService;
+   private ProductService productService;
 
     @Override
     public String getBotUsername() {
