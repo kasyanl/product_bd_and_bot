@@ -87,14 +87,14 @@ public class ProductCrudOperationController {
         productOfDeleteService.saveProductOfDelete(id);
         productService.deleteProduct(id);
 
-        return new ModelAndView("adminpages/allproduct");
+        return new ModelAndView("redirect:product/allproduct");
     }
 
     // получение страницы с сообщением, что продукт удален из корзины
     @GetMapping(value = "/deleteproductbasket/{id}")
     public ModelAndView deleteproductbasket(@PathVariable("id") int id) {
         productOfDeleteService.deleteOfBasket(id);
-        return new ModelAndView("adminpages/deleteproductbasket");
+        return new ModelAndView("redirect:product/deleteproductbasket");
     }
 
     // очистка корзины
