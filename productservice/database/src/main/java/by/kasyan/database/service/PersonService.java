@@ -25,8 +25,8 @@ public class PersonService {
         return (List<Person>) personRepository.findAll();
     }
 //
-//    @Autowired
-//    public void setPersonRepository(PersonRepository personRepository) {
-//        this.personRepository = personRepository;
-//    }
+    @Autowired
+    public void setPersonRepository(PersonRepository personRepository) {
+        this.personRepository = personRepository;
+    }
 }
