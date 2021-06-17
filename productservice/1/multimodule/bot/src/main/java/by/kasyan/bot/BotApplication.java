@@ -1,12 +1,13 @@
-package com.example.bot;
+package by.kasyan.bot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-@SpringBootApplication(scanBasePackages= {"by.kasyan.database", "com.example.bot"})
+@SpringBootApplication
 public class BotApplication {
 
     public static void main(String[] args) {
         SpringApplication.run(BotApplication.class, args);
     }
+
 }
