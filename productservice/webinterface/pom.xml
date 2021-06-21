@@ -35,7 +35,17 @@
             <groupId>by.kasyan</groupId>
             <artifactId>database</artifactId>
             <version>0.0.1-SNAPSHOT</version>
-<!--            <scope>compile</scope>-->
+        </dependency>
+        <dependency>
+            <groupId>org.jacoco</groupId>
+            <artifactId>jacoco-maven-plugin</artifactId>
+            <version>0.8.7</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>5.7.0</version>
         </dependency>
     </dependencies>
     <build>
