@@ -84,49 +84,22 @@ public class ProductService {
     }
 
     public List<Product> sort(String sort) {
-        switch (sort) {
-            case "sortbyid":
-            case "sortbyidguest":
-                return productRepository.sortById();
-            case "sortbyidreverse":
-            case "sortbyidreverseguest":
-                return productRepository.sortByIdReverse();
-            case "sortbycategory":
-            case "sortbycategoryguest":
-                return productRepository.sortByCategory();
-            case "sortbycategoryreverse":
-            case "sortbycategoryreverseguest":
-                return productRepository.sortByCategoryReverse();
-            case "sortbyname":
-            case "sortbynameguest":
-                return productRepository.sortByName();
-            case "sortbynamereverse":
-            case "sortbynamereverseguest":
-                return productRepository.sortByNameReverse();
-            case "sortbyprice":
-            case "sortbypriceguest":
-                return productRepository.sortByPrice();
-            case "sortbypricereverse":
-            case "sortbypricereverseguest":
-                return productRepository.sortByPriceReverse();
-            case "sortbydiscount":
-            case "sortbydiscountguest":
-                return productRepository.sortByDiscount();
-            case "sortbydiscountreverse":
-            case "sortbydiscountreverseguest":
-                return productRepository.sortByDiscountReverse();
-            case "sortbyactualprice":
-            case "sortbyactualpriceguest":
-                return productRepository.sortByActualPrice();
-            case "sortbyactualpricereverse":
-            case "sortbyactualpricereverseguest":
-                return productRepository.sortByActualPriceReverse();
-            case "sortbytotalvolume":
-            case "sortbytotalvolumeguest":
-                return productRepository.sortByTotalVolume();
-            default:
-                return productRepository.sortByTotalVolumeReverse();
-        }
+        return switch (sort) {
+            case "sortbyid", "sortbyidguest" -> productRepository.sortById();
+            case "sortbyidreverse", "sortbyidreverseguest" -> productRepository.sortByIdReverse();
+            case "sortbycategory", "sortbycategoryguest" -> productRepository.sortByCategory();
+            case "sortbycategoryreverse", "sortbycategoryreverseguest" -> productRepository.sortByCategoryReverse();
+            case "sortbyname", "sortbynameguest" -> productRepository.sortByName();
+            case "sortbynamereverse", "sortbynamereverseguest" -> productRepository.sortByNameReverse();
+            case "sortbyprice", "sortbypriceguest" -> productRepository.sortByPrice();
+            case "sortbypricereverse", "sortbypricereverseguest" -> productRepository.sortByPriceReverse();
+            case "sortbydiscount", "sortbydiscountguest" -> productRepository.sortByDiscount();
+            case "sortbydiscountreverse", "sortbydiscountreverseguest" -> productRepository.sortByDiscountReverse();
+            case "sortbyactualprice", "sortbyactualpriceguest" -> productRepository.sortByActualPrice();
+            case "sortbyactualpricereverse", "sortbyactualpricereverseguest" -> productRepository.sortByActualPriceReverse();
+            case "sortbytotalvolume", "sortbytotalvolumeguest" -> productRepository.sortByTotalVolume();
+            default -> productRepository.sortByTotalVolumeReverse();
+        };
     }
 
     @Autowired
