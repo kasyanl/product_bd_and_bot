@@ -5,7 +5,7 @@ import org.json.JSONObject;
 
 public class App {
     public static void main(String[] args){
-        System.out.println(App.getUser());
+        System.out.println(App.getUser("parsers.json"));
 
     }
 
