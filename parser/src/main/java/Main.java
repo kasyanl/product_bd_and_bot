@@ -22,9 +22,7 @@ public class Main {
 
         // загружаем Json в виде Java строки
         String resultJson = JsonUtils.parseUrl(url);
-
-        CourceService.getUser(resultJson);
-//        System.out.println("Полученный JSON:\n" + resultJson);
+        System.out.println("Полученный JSON:\n" + resultJson);
 
         // парсим полученный JSON и печатаем его на экран
 //        CourceService.parseCurrentCourseJson(resultJson);
@@ -33,6 +31,8 @@ public class Main {
 //        String json = JsonUtils.buildWeatherJson();
 //        System.out.println("Созданный нами JSON:\n" + json);
 //    }
+
+
 
 }
 }
