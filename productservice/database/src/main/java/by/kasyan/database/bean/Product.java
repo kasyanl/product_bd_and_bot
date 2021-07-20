@@ -6,7 +6,7 @@ import lombok.NoArgsConstructor;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
-import java.util.Date;
+import java.util.*;
 
 @Entity
 @Data
@@ -32,5 +32,4 @@ public class Product {
     @Temporal(TemporalType.TIMESTAMP)
     @UpdateTimestamp
     private Date data;
-
 }
